@@ -6,13 +6,13 @@ using System.Threading.Tasks;
 
 namespace TheHotel.MenuFolder
 {
-    public class MainMenu
+    public class BookingsMenu
     {
-        public void ShowMainMenu()
+        public void ShowBookingMenu()
         {
             List<string> menuOptions = new List<string>
             {
-            "Bokningar", "Kunder", "Rum"
+            "Ny bokning", "Ändra bokning", "Sök bokning", "Avboka"
             };
 
             int selection = 0;
@@ -43,7 +43,7 @@ namespace TheHotel.MenuFolder
                     Console.BackgroundColor = ConsoleColor.Magenta;
                     Console.ForegroundColor = ConsoleColor.Black;
                 }
-                Console.WriteLine("Avsluta");
+                Console.WriteLine("Tillbaka");
                 Console.ResetColor();
 
 
@@ -75,28 +75,31 @@ namespace TheHotel.MenuFolder
                     }
                     else if (selection == 0)
                     {
-                        BookingsMenu bookingsMenu = new BookingsMenu();
-                        bookingsMenu.ShowBookingMenu();
+                        Console.WriteLine("Här finns ny bokning");
+                        Console.ReadKey();
                     }
                     else if (selection == 1)
                     {
-                        CustomersMenu customersMenu = new CustomersMenu();
-                        customersMenu.ShowCustomerMenu();
+                        Console.WriteLine("Här finns ändra bokning");
+                        Console.ReadKey();
                     }
                     else if (selection == 2)
                     {
-                        RoomsMenu roomsMenu = new RoomsMenu();
-                        roomsMenu.ShowRoomMenu();
+                        Console.WriteLine("Här finns sök bokning");
+                        Console.ReadKey();
+                    }
+                    else if (selection == 3)
+                    {
+                        Console.WriteLine("Här finns avboka");
+                        Console.ReadKey();
                     }
                 }
 
 
             }
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Tryck valfri tangent för att avsluta helt.");
-            Console.ResetColor();
-            Console.ReadKey();
-            Environment.Exit(0);
+
+            MainMenu mainMenu = new MainMenu();
+            mainMenu.ShowMainMenu();
 
         }
     }
