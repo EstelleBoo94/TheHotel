@@ -12,7 +12,7 @@ namespace TheHotel.MenuFolder
         {
             List<string> menuOptions = new List<string>
             {
-            "Ny kund", "Admin"
+            "Bokningar", "Kunder", "Rum"
             };
 
             int selection = 0;
@@ -75,11 +75,15 @@ namespace TheHotel.MenuFolder
                     }
                     else if (selection == 0)
                     {
-                        Console.WriteLine("Här finns kund");
+                        Console.WriteLine("Här finns bokningar");
                     }
                     else if (selection == 1)
                     {
-                        Console.WriteLine("Här finns admin");
+                        Console.WriteLine("Här finns kund");
+                    }
+                    else if (selection == 2)
+                    {
+                        Console.WriteLine("Här finns rum");
                     }
                 }
 
