@@ -4,14 +4,17 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheHotel.InterfaceFolder;
+using TheHotel.MenuFolder;
+using TheHotel.TablesFolder;
 
 namespace TheHotel.CustomersFolder
 {
     public class CrudCustomer : ICrudOperations
     {
+        CustomerInformationMenu customerInfoMenu = new CustomerInformationMenu();
         public void Create()
         {
-
+            customerInfoMenu.ShowCustomerInfoMenu();
         }
         public void Read()
         {

@@ -3,19 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheHotel.CustomersFolder;
+using TheHotel.TablesFolder;
 
 namespace TheHotel.MenuFolder
 {
-    public class CustomersMenu
+    public class CustomerInformationMenu
     {
-        public void ShowCustomerMenu()
+        public void ShowCustomerInfoMenu()
         {
-            CrudCustomer crudCustomer = new CrudCustomer();
-
             List<string> menuOptions = new List<string>
             {
-            "Registrera ny kund", "Ändra kunduppgifter", "Sök kund", "Ta bort kund"
+            "KundId", "Förnamn", "Efternamn", "Personnummer",
+                "Telefonummer", "Email", "Gatuadress", "Postnummer", "Stad", "Land"
             };
 
             int selection = 0;
@@ -24,6 +23,7 @@ namespace TheHotel.MenuFolder
             while (inMenu == true)
             {
                 Console.Clear();
+
                 Console.ForegroundColor = ConsoleColor.Magenta;
                 Console.WriteLine("Välj alternativ med piltangenterna:\n");
                 Console.ResetColor();
@@ -49,6 +49,8 @@ namespace TheHotel.MenuFolder
                 Console.WriteLine("Tillbaka");
                 Console.ResetColor();
 
+                Console.WriteLine("\n\n");
+                CustomerTableClass.CustomerTable();
 
                 var keyInput = Console.ReadKey(true);
 
@@ -78,7 +80,8 @@ namespace TheHotel.MenuFolder
                     }
                     else if (selection == 0)
                     {
-                        crudCustomer.Create();
+                        Console.WriteLine("Här finns ny kund");
+                        Console.ReadKey();
                     }
                     else if (selection == 1)
                     {
@@ -95,13 +98,43 @@ namespace TheHotel.MenuFolder
                         Console.WriteLine("Här finns ta bort kund");
                         Console.ReadKey();
                     }
+                    else if (selection == 4)
+                    {
+                        Console.WriteLine("Här finns ta bort kund");
+                        Console.ReadKey();
+                    }
+                    else if (selection == 5)
+                    {
+                        Console.WriteLine("Här finns ta bort kund");
+                        Console.ReadKey();
+                    }
+                    else if (selection == 6)
+                    {
+                        Console.WriteLine("Här finns ta bort kund");
+                        Console.ReadKey();
+                    }
+                    else if (selection == 7)
+                    {
+                        Console.WriteLine("Här finns ta bort kund");
+                        Console.ReadKey();
+                    }
+                    else if (selection == 8)
+                    {
+                        Console.WriteLine("Här finns ta bort kund");
+                        Console.ReadKey();
+                    }
+                    else if (selection == 9)
+                    {
+                        Console.WriteLine("Här finns ta bort kund");
+                        Console.ReadKey();
+                    }
                 }
 
 
             }
 
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.ShowMainMenu();
+            CustomersMenu customersMenu = new CustomersMenu();
+            customersMenu.ShowCustomerMenu();
 
         }
     }
