@@ -8,6 +8,7 @@ namespace TheHotel.CustomersFolder
 {
     public class CustomerList
     {
-        List<Customer> ListOfCustomers = new();
+        public List<Customer> Customers = new();
+        
     }
 }

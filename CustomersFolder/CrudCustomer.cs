@@ -11,10 +11,10 @@ namespace TheHotel.CustomersFolder
 {
     public class CrudCustomer : ICrudOperations
     {
-        CustomerInformationMenu customerInfoMenu = new CustomerInformationMenu();
+        
         public void Create()
         {
-            customerInfoMenu.ShowCustomerInfoMenu();
+            
         }
         public void Read()
         {

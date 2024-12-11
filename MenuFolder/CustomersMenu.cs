@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheHotel.CustomersFolder;
+using TheHotel.TablesFolder;
 
 namespace TheHotel.MenuFolder
 {
@@ -11,11 +12,11 @@ namespace TheHotel.MenuFolder
     {
         public void ShowCustomerMenu()
         {
-            CrudCustomer crudCustomer = new CrudCustomer();
+            CustomerInformationMenu customerInfoMenu = new CustomerInformationMenu();
 
             List<string> menuOptions = new List<string>
             {
-            "Registrera ny kund", "Ändra kunduppgifter", "Sök kund", "Ta bort kund"
+            "Registrera ny kund", "Ändra kunduppgifter", "Visa kunder", "Sök kund", "Ta bort kund"
             };
 
             int selection = 0;
@@ -78,7 +79,7 @@ namespace TheHotel.MenuFolder
                     }
                     else if (selection == 0)
                     {
-                        crudCustomer.Create();
+                        customerInfoMenu.ShowCustomerInfoMenu();
                     }
                     else if (selection == 1)
                     {
@@ -87,10 +88,16 @@ namespace TheHotel.MenuFolder
                     }
                     else if (selection == 2)
                     {
-                        Console.WriteLine("Här finns sök kund");
+                        CustomerTableClass.DisplayAllCustomersTable();
+                        Console.WriteLine("Tryck valfri tangent för att gå tillbaka.");
                         Console.ReadKey();
                     }
                     else if (selection == 3)
+                    {
+                        Console.WriteLine("Här finns sök kund");
+                        Console.ReadKey();
+                    }
+                    else if (selection == 4)
                     {
                         Console.WriteLine("Här finns ta bort kund");
                         Console.ReadKey();

@@ -20,7 +20,7 @@ namespace TheHotel.CustomersFolder
         public string? Country { get; set; }
 
         public Customer(int customerId, string firstName, string lastName,
-            int ssn, int phoneNumber, string email)
+            int ssn, int phoneNumber, string email, string? street, int? postalCode, string? city, string? country)
         {
             CustomerId = customerId;
             FirstName = firstName;
@@ -28,6 +28,10 @@ namespace TheHotel.CustomersFolder
             SSN = ssn;
             PhoneNumber = phoneNumber;
             Email = email;
+            StreetAddress = street;
+            PostalCode = postalCode;
+            City = city;
+            Country = country;
         }
     }
 }

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheHotel.CustomersFolder;
 using TheHotel.TablesFolder;
 
 namespace TheHotel.MenuFolder
@@ -11,14 +12,19 @@ namespace TheHotel.MenuFolder
     {
         public void ShowCustomerInfoMenu()
         {
+            CustomersMenu customersMenu = new CustomersMenu();
+            CustomerList customers= new CustomerList();
+
             List<string> menuOptions = new List<string>
             {
             "KundId", "Förnamn", "Efternamn", "Personnummer",
-                "Telefonummer", "Email", "Gatuadress", "Postnummer", "Stad", "Land"
+                "Telefonummer", "Email", "Gatuadress", "Postnummer", "Stad", "Land", "Spara kund"
             };
 
             int selection = 0;
             bool inMenu = true;
+
+            var contentList = new List<string> { " ", " ", " ", " ", " ", " ", " ", " ", " ", " " };
 
             while (inMenu == true)
             {
@@ -49,10 +55,23 @@ namespace TheHotel.MenuFolder
                 Console.WriteLine("Tillbaka");
                 Console.ResetColor();
 
-                Console.WriteLine("\n\n");
-                CustomerTableClass.CustomerTable();
+                Console.WriteLine("\n");
+
+
+                CustomerTableClass.DisplayCustomerTable(contentList);
 
                 var keyInput = Console.ReadKey(true);
+
+                int customerId = 0;
+                string firstName = null;
+                string lastName = null;
+                int ssn = 0;
+                int phoneNumber = 0;
+                string email = null;
+                string streetAdress = null;
+                int postalCode = 0;
+                string city = null;
+                string country = null;
 
                 if (keyInput.Key == ConsoleKey.UpArrow)
                 {
@@ -72,6 +91,7 @@ namespace TheHotel.MenuFolder
                     }
                 }
 
+
                 else if (keyInput.Key == ConsoleKey.Enter)
                 {
                     if (selection == menuOptions.Count)
@@ -80,60 +100,78 @@ namespace TheHotel.MenuFolder
                     }
                     else if (selection == 0)
                     {
-                        Console.WriteLine("Här finns ny kund");
-                        Console.ReadKey();
+                        Console.WriteLine("Ange kundId:");
+                        customerId = int.Parse(Console.ReadLine());
+                        contentList.Insert(0, customerId.ToString());
                     }
                     else if (selection == 1)
                     {
-                        Console.WriteLine("Här finns ändra kund");
-                        Console.ReadKey();
+                        Console.WriteLine("Ange förnamn:");
+                        firstName = Console.ReadLine();
+                        contentList.Insert(1, firstName);
                     }
                     else if (selection == 2)
                     {
-                        Console.WriteLine("Här finns sök kund");
-                        Console.ReadKey();
+                        Console.WriteLine("Ange efternamn:");
+                        lastName = Console.ReadLine();
+                        contentList.Insert(2, lastName);
                     }
                     else if (selection == 3)
                     {
-                        Console.WriteLine("Här finns ta bort kund");
-                        Console.ReadKey();
+                        Console.WriteLine("Ange personnummer:");
+                        ssn = int.Parse(Console.ReadLine());
+                        contentList.Insert(3, ssn.ToString());
                     }
                     else if (selection == 4)
                     {
-                        Console.WriteLine("Här finns ta bort kund");
-                        Console.ReadKey();
+                        Console.WriteLine("Ange telefonnummer:");
+                        phoneNumber = int.Parse(Console.ReadLine());
+                        contentList.Insert(4, phoneNumber.ToString());
                     }
                     else if (selection == 5)
                     {
-                        Console.WriteLine("Här finns ta bort kund");
-                        Console.ReadKey();
+                        Console.WriteLine("Ange mailadress:");
+                        email = Console.ReadLine();
+                        contentList.Insert(5, email);
                     }
                     else if (selection == 6)
                     {
-                        Console.WriteLine("Här finns ta bort kund");
-                        Console.ReadKey();
+                        Console.WriteLine("Ange gatuadress:");
+                        streetAdress = Console.ReadLine();
+                        contentList.Insert(6, streetAdress);
                     }
                     else if (selection == 7)
                     {
-                        Console.WriteLine("Här finns ta bort kund");
-                        Console.ReadKey();
+                        Console.WriteLine("Ange postnummer:");
+                        postalCode = int.Parse(Console.ReadLine());
+                        contentList.Insert(7, postalCode.ToString());
                     }
                     else if (selection == 8)
                     {
-                        Console.WriteLine("Här finns ta bort kund");
-                        Console.ReadKey();
+                        Console.WriteLine("Ange stad:");
+                        city = Console.ReadLine();
+                        contentList.Insert(8, city);
                     }
                     else if (selection == 9)
                     {
-                        Console.WriteLine("Här finns ta bort kund");
+                        Console.WriteLine("Ange land:");
+                        country = Console.ReadLine();
+                        contentList.Insert(9, country);
+                    }
+                    else if (selection == 10)
+                    {
+                        customers.Customers.Add(new Customer(customerId, firstName, lastName, ssn, phoneNumber, email, 
+                            streetAdress, postalCode, city, country));
+                        Console.WriteLine("Kunden är registrerad.\nTryck valfri tangent för att fortsätta.");
                         Console.ReadKey();
+                        customersMenu.ShowCustomerMenu();
                     }
                 }
 
 
             }
 
-            CustomersMenu customersMenu = new CustomersMenu();
+            
             customersMenu.ShowCustomerMenu();
 
         }
