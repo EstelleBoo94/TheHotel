@@ -3,10 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheHotel.CustomersFolder;
-using TheHotel.TablesFolder;
+using TheHotel.Displays.TablesFolder;
 
-namespace TheHotel.MenuFolder
+namespace TheHotel.Displays.MenuFolder
 {
     public class CustomersMenu
     {

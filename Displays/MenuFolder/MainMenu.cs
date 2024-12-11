@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheHotel.MenuFolder
+namespace TheHotel.Displays.MenuFolder
 {
     public class MainMenu
     {

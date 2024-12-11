@@ -4,15 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheHotel.MenuFolder
+namespace TheHotel.Displays.MenuFolder
 {
-    public class BookingsMenu
+    public class RoomsMenu
     {
-        public void ShowBookingMenu()
+        public void ShowRoomMenu()
         {
             List<string> menuOptions = new List<string>
             {
-            "Ny bokning", "Ändra bokning", "Sök bokning", "Avboka"
+            "Visa rum", "Ändra rum", "Aktivera/avaktivera rum", "Skapa nytt rum"
             };
 
             int selection = 0;
@@ -75,22 +75,22 @@ namespace TheHotel.MenuFolder
                     }
                     else if (selection == 0)
                     {
-                        Console.WriteLine("Här finns ny bokning");
+                        Console.WriteLine("Här finns visa rum");
                         Console.ReadKey();
                     }
                     else if (selection == 1)
                     {
-                        Console.WriteLine("Här finns ändra bokning");
+                        Console.WriteLine("Här finns ändra rum");
                         Console.ReadKey();
                     }
                     else if (selection == 2)
                     {
-                        Console.WriteLine("Här finns sök bokning");
+                        Console.WriteLine("Här finns aktivera/avaktivera rum");
                         Console.ReadKey();
                     }
                     else if (selection == 3)
                     {
-                        Console.WriteLine("Här finns avboka");
+                        Console.WriteLine("Här finns skapa rum");
                         Console.ReadKey();
                     }
                 }

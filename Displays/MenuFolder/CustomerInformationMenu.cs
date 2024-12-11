@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheHotel.CustomersFolder;
-using TheHotel.TablesFolder;
+using TheHotel.Displays.TablesFolder;
+using TheHotel.Services;
+using TheHotel.Models;
 
-namespace TheHotel.MenuFolder
+namespace TheHotel.Displays.MenuFolder
 {
     public class CustomerInformationMenu
     {
         public void ShowCustomerInfoMenu()
         {
             CustomersMenu customersMenu = new CustomersMenu();
-            CustomerList customers= new CustomerList();
+            CustomerList customers = new CustomerList();
 
             List<string> menuOptions = new List<string>
             {
@@ -160,7 +161,7 @@ namespace TheHotel.MenuFolder
                     }
                     else if (selection == 10)
                     {
-                        customers.Customers.Add(new Customer(customerId, firstName, lastName, ssn, phoneNumber, email, 
+                        customers.Customers.Add(new Customer(customerId, firstName, lastName, ssn, phoneNumber, email,
                             streetAdress, postalCode, city, country));
                         Console.WriteLine("Kunden är registrerad.\nTryck valfri tangent för att fortsätta.");
                         Console.ReadKey();
@@ -171,7 +172,7 @@ namespace TheHotel.MenuFolder
 
             }
 
-            
+
             customersMenu.ShowCustomerMenu();
 
         }

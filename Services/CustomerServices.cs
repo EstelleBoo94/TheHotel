@@ -3,18 +3,17 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheHotel.InterfaceFolder;
-using TheHotel.MenuFolder;
-using TheHotel.TablesFolder;
+using TheHotel.Displays.MenuFolder;
+using TheHotel.Displays.TablesFolder;
 
-namespace TheHotel.CustomersFolder
+namespace TheHotel.Services
 {
-    public class CrudCustomer : ICrudOperations
+    public class CustomerServices : ICrudOperations
     {
-        
+
         public void Create()
         {
-            
+
         }
         public void Read()
         {

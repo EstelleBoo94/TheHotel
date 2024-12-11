@@ -1,4 +1,4 @@
-﻿using TheHotel.MenuFolder;
+﻿using TheHotel.Displays.MenuFolder;
 
 namespace TheHotel
 {

@@ -4,9 +4,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheHotel.CustomersFolder;
+using TheHotel.Models;
+using TheHotel.Services;
 
-namespace TheHotel.TablesFolder
+namespace TheHotel.Displays.TablesFolder
 {
     public class CustomerTableClass
     {
@@ -30,7 +31,7 @@ namespace TheHotel.TablesFolder
             table.AddColumn("[Pink1]Stad[/]");
             table.AddColumn("[Pink1]Land[/]");
 
-            table.AddRow(content[0], content[1], content[2], content[3], 
+            table.AddRow(content[0], content[1], content[2], content[3],
                 content[4], content[5], content[6], content[7], content[8], content[9]);
 
             AnsiConsole.Write(table);

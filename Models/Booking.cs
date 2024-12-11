@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TheHotel.BookingsFolder
+namespace TheHotel.Models
 {
     public class Booking
     {
@@ -15,7 +15,7 @@ namespace TheHotel.BookingsFolder
         public int RoomNumber { get; set; }
         public decimal Price { get; set; }
 
-        public Booking(int bookingId, DateOnly startDate, 
+        public Booking(int bookingId, DateOnly startDate,
             DateOnly endDate, int numberOfGuests, int roomNumber, decimal price)
         {
             BookingId = bookingId;
