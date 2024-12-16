@@ -65,5 +65,31 @@ namespace TheHotel.Displays.TablesFolder
 
             AnsiConsole.Write(table);
         }
+
+        public static void DisplayOneCustomerTable(Customer c)
+        {
+
+            var table = new Table();
+            {
+                table.Border = TableBorder.DoubleEdge;
+                table.Centered();
+            };
+
+            table.AddColumn("[Pink1]KundId[/]");
+            table.AddColumn("[Pink1]Förnamn[/]");
+            table.AddColumn("[Pink1]Efternamn[/]");
+            table.AddColumn("[Pink1]Personnummer[/]");
+            table.AddColumn("[Pink1]Telefon[/]");
+            table.AddColumn("[Pink1]Email[/]");
+            table.AddColumn("[Pink1]Gatuadress[/]");
+            table.AddColumn("[Pink1]Postnummer[/]");
+            table.AddColumn("[Pink1]Stad[/]");
+            table.AddColumn("[Pink1]Land[/]");
+
+            table.AddRow(c.CustomerId.ToString(), c.FirstName, c.LastName, c.SSN.ToString(),
+                          c.PhoneNumber.ToString(), c.Email, c.StreetAddress, c.PostalCode.ToString(), c.City, c.Country);
+
+            AnsiConsole.Write(table);
+        }
     }
 }

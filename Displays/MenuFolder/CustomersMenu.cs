@@ -88,14 +88,11 @@ namespace TheHotel.Displays.MenuFolder
                     }
                     else if (selection == 2)
                     {
-                        CustomerTableClass.DisplayAllCustomersTable(customers);
-                        Console.WriteLine("Tryck valfri tangent för att gå tillbaka.");
-                        Console.ReadKey();
+                        customerServices.Read(customers);
                     }
                     else if (selection == 3)
                     {
-                        Console.WriteLine("Här finns sök kund");
-                        Console.ReadKey();
+                        customerServices.FindCustomer(customers);
                     }
                     else if (selection == 4)
                     {

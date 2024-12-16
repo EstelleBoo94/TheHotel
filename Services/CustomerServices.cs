@@ -178,7 +178,10 @@ namespace TheHotel.Services
 
         public void Read(CustomerList customers)
         {
-
+            Console.Clear();
+            CustomerTableClass.DisplayAllCustomersTable(customers);
+            Console.WriteLine("Tryck valfri tangent för att gå tillbaka.");
+            Console.ReadKey();
         }
         public void Update()
         {
@@ -186,7 +189,29 @@ namespace TheHotel.Services
         }
         public void Delete()
         {
+            FindCustomer(CustomerList customers);
+        }
 
+        public void FindCustomer(CustomerList customers)
+        {
+            Console.Clear();
+            Console.WriteLine("Ange kundId för kunden du vill se information om:");
+            int findId = int.Parse(Console.ReadLine());
+
+            var findCustomer = customers.Customers.FirstOrDefault(c => c.CustomerId == findId);
+
+            if (findCustomer != null)
+            {
+                CustomerTableClass.DisplayOneCustomerTable(findCustomer);
+                Console.WriteLine("Tryck valfri tangent för att gå tillbaka.");
+                Console.ReadKey();
+            }
+            else
+            {
+                Console.WriteLine("Kunden hittades inte.");
+                Console.WriteLine("Tryck valfri tangent för att gå tillbaka.");
+                Console.ReadKey();
+            }
         }
     }
 }
