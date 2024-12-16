@@ -3,14 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheHotel.Models;
 
 namespace TheHotel.Services
 {
-    public interface ICrudOperations<T>
+    public class RoomList
     {
-        void Create(T list);
-        void Read(T list);
-        void Update();
-        void Delete();
+        public List<Room> Rooms = new();
     }
 }

@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TheHotel.Displays.TablesFolder;
+using TheHotel.Services;
 
 namespace TheHotel.Displays.MenuFolder
 {
     public class CustomersMenu
     {
-        public void ShowCustomerMenu()
+        public void ShowCustomerMenu(CustomerList customers)
         {
-            CustomerInformationMenu customerInfoMenu = new CustomerInformationMenu();
+            CustomerServices customerServices = new();
 
             List<string> menuOptions = new List<string>
             {
@@ -78,7 +79,7 @@ namespace TheHotel.Displays.MenuFolder
                     }
                     else if (selection == 0)
                     {
-                        customerInfoMenu.ShowCustomerInfoMenu();
+                        customerServices.Create(customers);
                     }
                     else if (selection == 1)
                     {
@@ -87,7 +88,7 @@ namespace TheHotel.Displays.MenuFolder
                     }
                     else if (selection == 2)
                     {
-                        CustomerTableClass.DisplayAllCustomersTable();
+                        CustomerTableClass.DisplayAllCustomersTable(customers);
                         Console.WriteLine("Tryck valfri tangent för att gå tillbaka.");
                         Console.ReadKey();
                     }

@@ -37,9 +37,9 @@ namespace TheHotel.Displays.TablesFolder
             AnsiConsole.Write(table);
         }
 
-        public static void DisplayAllCustomersTable()
+        public static void DisplayAllCustomersTable(CustomerList customers)
         {
-            CustomerList customers = new CustomerList();
+            Console.Clear();
             var table = new Table();
             {
                 table.Border = TableBorder.DoubleEdge;

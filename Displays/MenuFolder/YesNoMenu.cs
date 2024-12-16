@@ -1,22 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using TheHotel.Services;
 
 namespace TheHotel.Displays.MenuFolder
 {
-    public class MainMenu
+    public static class YesNoMenu
     {
-        public void ShowMainMenu()
+        public static int ShowYesNoMenu(string prompt)
         {
-            CustomerList customers = new();
-            RoomList rooms = new();
-
             List<string> menuOptions = new List<string>
             {
-            "Bokningar", "Kunder", "Rum"
+            "Ja", "Nej"
             };
 
             int selection = 0;
@@ -26,6 +23,7 @@ namespace TheHotel.Displays.MenuFolder
             {
                 Console.Clear();
                 Console.ForegroundColor = ConsoleColor.Magenta;
+                Console.WriteLine(prompt);
                 Console.WriteLine("Välj alternativ med piltangenterna:\n");
                 Console.ResetColor();
 
@@ -47,7 +45,7 @@ namespace TheHotel.Displays.MenuFolder
                     Console.BackgroundColor = ConsoleColor.Magenta;
                     Console.ForegroundColor = ConsoleColor.Black;
                 }
-                Console.WriteLine("Avsluta");
+                Console.WriteLine("Tillbaka");
                 Console.ResetColor();
 
 
@@ -79,28 +77,18 @@ namespace TheHotel.Displays.MenuFolder
                     }
                     else if (selection == 0)
                     {
-                        BookingsMenu bookingsMenu = new BookingsMenu();
-                        bookingsMenu.ShowBookingMenu();
+                        return 1;
                     }
                     else if (selection == 1)
                     {
-                        CustomersMenu customersMenu = new CustomersMenu();
-                        customersMenu.ShowCustomerMenu(customers);
-                    }
-                    else if (selection == 2)
-                    {
-                        RoomsMenu roomsMenu = new RoomsMenu();
-                        roomsMenu.ShowRoomMenu(rooms);
+                        return 2;
                     }
                 }
 
 
             }
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Tryck valfri tangent för att avsluta helt.");
-            Console.ResetColor();
-            Console.ReadKey();
-            Environment.Exit(0);
+            
+            return 0;
 
         }
     }

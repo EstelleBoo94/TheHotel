@@ -3,13 +3,16 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TheHotel.Services;
 
 namespace TheHotel.Displays.MenuFolder
 {
     public class RoomsMenu
     {
-        public void ShowRoomMenu()
+        public void ShowRoomMenu(RoomList rooms)
         {
+            RoomServices roomServices = new();
+
             List<string> menuOptions = new List<string>
             {
             "Visa rum", "Ändra rum", "Aktivera/avaktivera rum", "Skapa nytt rum"
@@ -90,8 +93,7 @@ namespace TheHotel.Displays.MenuFolder
                     }
                     else if (selection == 3)
                     {
-                        Console.WriteLine("Här finns skapa rum");
-                        Console.ReadKey();
+                        roomServices.Create(rooms);
                     }
                 }
 
