@@ -165,12 +165,12 @@ namespace TheHotel.Services
 
         }
 
-        public void Update()
+        public void Update(RoomList rooms)
         {
 
         }
 
-        public void Delete()
+        public void Delete(RoomList rooms)
         {
 
         }
