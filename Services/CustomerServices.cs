@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Spectre.Console;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 using TheHotel.Displays.MenuFolder;
@@ -46,26 +48,54 @@ namespace TheHotel.Services
                 Console.WriteLine("Välj alternativ med piltangenterna:\n");
                 Console.ResetColor();
 
+                //for (int i = 0; i < menuOptions.Count; i++)
+                //{
+                //    if (i == selection)
+                //    {
+                //        Console.BackgroundColor = ConsoleColor.Magenta;
+                //        Console.ForegroundColor = ConsoleColor.Black;
+                //    }
+
+                //    Console.WriteLine(menuOptions[i]);
+
+                //    Console.ResetColor();
+                //}
+                var content = new List<string>();
                 for (int i = 0; i < menuOptions.Count; i++)
                 {
                     if (i == selection)
                     {
-                        Console.BackgroundColor = ConsoleColor.Magenta;
-                        Console.ForegroundColor = ConsoleColor.Black;
+                        content.Add($"[black on pink1]{menuOptions[i]}[/]");
                     }
-
-                    Console.WriteLine(menuOptions[i]);
-
-                    Console.ResetColor();
+                    else
+                    {
+                        content.Add($" {menuOptions[i]}");
+                    }
                 }
 
+                //if (selection == menuOptions.Count)
+                //{
+                //    Console.BackgroundColor = ConsoleColor.Magenta;
+                //    Console.ForegroundColor = ConsoleColor.Black;
+                //}
+                //Console.WriteLine("Tillbaka");
+                //Console.ResetColor();
                 if (selection == menuOptions.Count)
                 {
-                    Console.BackgroundColor = ConsoleColor.Magenta;
-                    Console.ForegroundColor = ConsoleColor.Black;
+                    content.Add($"[black on red]Tillbaka[/]");
                 }
-                Console.WriteLine("Tillbaka");
-                Console.ResetColor();
+                else
+                {
+                    content.Add($" Tillbaka");
+                }
+                var panel = new Panel(new Markup(string.Join("\n", content)))
+                {
+                    Padding = new Padding(1),
+                    Border = BoxBorder.Double,
+                    BorderStyle = Style.Parse("pink1"),
+                };
+
+                AnsiConsole.Write(panel);
 
                 Console.WriteLine("\n");
 

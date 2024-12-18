@@ -37,8 +37,7 @@ namespace TheHotel.Displays.MenuFolder
                         Console.ReadKey();
                         break;
                     case 3:
-                        Console.WriteLine("Här finns skapa nytt rum");
-                        Console.ReadKey();
+                        roomServices.Create(rooms);
                         break;
                 }
 

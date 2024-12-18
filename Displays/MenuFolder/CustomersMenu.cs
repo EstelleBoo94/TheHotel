@@ -16,7 +16,7 @@ namespace TheHotel.Displays.MenuFolder
 
             List<string> menuOptions = new List<string>
             {
-            "Registrera ny kund", "Ändra kunduppgifter", "Visa kunder", "Sök kund", "Ta bort kund"
+            "Registrera ny kund", "Ändra kunduppgifter", "Visa kunder", "Sök kund", "Avaktivera/Aktivera kund"
             };
 
             MenuTemplate.ShowMenu("Tillbaka", menuOptions, selection =>
@@ -28,8 +28,7 @@ namespace TheHotel.Displays.MenuFolder
                         break;
 
                     case 1:
-                        Console.WriteLine("Här finns ändra kund");
-                        Console.ReadKey();
+                        customerServices.Update(customers);
                         break;
                     case 2:
                         customerServices.Read(customers);
@@ -38,8 +37,7 @@ namespace TheHotel.Displays.MenuFolder
                         customerServices.FindCustomer(customers);
                         break;
                     case 4:
-                        Console.WriteLine("Här finns ta bort kund");
-                        Console.ReadKey();
+                        customerServices.Delete(customers);
                         break;
                 }
 
