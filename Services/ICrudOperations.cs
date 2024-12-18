@@ -10,7 +10,7 @@ namespace TheHotel.Services
     {
         void Create(T list);
         void Read(T list);
-        void Update();
-        void Delete();
+        void Update(T list);
+        void Delete(T list);
     }
 }
