@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using TheHotel.Data;
+using TheHotel.Displays;
 using TheHotel.Displays.MenuFolder;
 using TheHotel.Services.InvoiceServices;
 
@@ -22,6 +23,8 @@ public class App
             var dataInitiaizer = new DataInitializer();
             dataInitiaizer.MigrateAndSeed(dbContext);
         }
+
+        WelcomeScreen.ShowWelcomeScreen();
 
         InvoicePaymentCheck invoicePaymentCheck = new();
         invoicePaymentCheck.CheckPayment(options.Options);
