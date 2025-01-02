@@ -1,29 +1,23 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace TheHotel.Models
+namespace TheHotel.Models;
+
+public class Booking
 {
-    public class Booking
-    {
-        public int BookingId { get; set; }
-        public DateOnly StartDate { get; set; }
-        public DateOnly EndDate { get; set; }
-        public int NumberOfGuests { get; set; }
-        public int RoomNumber { get; set; }
-        public decimal Price { get; set; }
+    [Key]
+    public int BookingId { get; set; }
+    public DateOnly StartDate { get; set; }
+    public DateOnly EndDate { get; set; }
+    public int NumberOfGuests { get; set; }
+    public List<Room> RoomsBooked { get; set; }
 
-        public Booking(int bookingId, DateOnly startDate,
-            DateOnly endDate, int numberOfGuests, int roomNumber, decimal price)
-        {
-            BookingId = bookingId;
-            StartDate = startDate;
-            EndDate = endDate;
-            NumberOfGuests = numberOfGuests;
-            RoomNumber = roomNumber;
-            Price = price;
-        }
-    }
+    [ForeignKey("Invoice")]
+    public int? InvoiceId { get; set; }
+    public Invoice Invoice { get; set; }
+
+    [ForeignKey("Guest")]
+    public int GuestId { get; set; }
+    public Guest Guest { get; set; }
+    public int ExtraBeds { get; set; }
 }

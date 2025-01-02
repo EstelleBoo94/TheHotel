@@ -1,51 +1,47 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TheHotel.Services;
+﻿using Microsoft.EntityFrameworkCore;
+using TheHotel.Data;
 
-namespace TheHotel.Displays.MenuFolder
+namespace TheHotel.Displays.MenuFolder;
+
+public class MainMenu
 {
-    public class MainMenu
+    public void ShowMainMenu(DbContextOptions<ApplicationDbContext> options)
     {
-        public void ShowMainMenu()
+        List<string> menuOptions = new List<string>
         {
-            CustomerList customers = new();
-            RoomList rooms = new();
+        "Bokningar", "Gäster", "Rum", "Fakturor"
+        };
 
-            List<string> menuOptions = new List<string>
+        MenuTemplate.ShowMenu("Avsluta", menuOptions, "HUVUDMENY", selection =>
+        {
+            switch (selection)
             {
-            "Bokningar", "Kunder", "Rum"
-            };
+                case 0:
+                    BookingMenu bookingsMenu = new();
+                    bookingsMenu.ShowBookingMenu(options);
+                    break;
 
-            MenuTemplate.ShowMenu("Avsluta", menuOptions, selection =>
-            {
-                switch (selection)
-                {
-                    case 0:
-                        BookingsMenu bookingsMenu = new BookingsMenu();
-                        bookingsMenu.ShowBookingMenu();
-                        break;
+                case 1:
+                    GuestMenu customersMenu = new();
+                    customersMenu.ShowGuestMenu(options);
+                    break;
+                case 2:
+                    RoomMenu roomsMenu = new();
+                    roomsMenu.ShowRoomMenu(options);
+                    break;
+                case 3:
+                    InvoiceMenu invoiceMenu = new();
+                    invoiceMenu.ShowInvoiceMenu(options);
+                    break;
+            }
 
-                    case 1:
-                        CustomersMenu customersMenu = new CustomersMenu();
-                        customersMenu.ShowCustomerMenu(customers);
-                        break;
-                    case 2:
-                        RoomsMenu roomsMenu = new RoomsMenu();
-                        roomsMenu.ShowRoomMenu(rooms);
-                        break;
-                }
+        });
 
-            });
-                  
-            Console.ForegroundColor = ConsoleColor.Yellow;
-            Console.WriteLine("Tryck valfri tangent för att avsluta helt.");
-            Console.ResetColor();
-            Console.ReadKey();
-            Environment.Exit(0);
+        Console.ForegroundColor = ConsoleColor.Yellow;
+        Console.WriteLine("Tryck valfri tangent för att avsluta helt.");
+        Console.ResetColor();
+        Console.ReadKey();
+        Environment.Exit(0);
 
-        }
     }
 }
