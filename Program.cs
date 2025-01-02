@@ -1,13 +1,10 @@
-﻿using TheHotel.Displays.MenuFolder;
+﻿namespace TheHotel;
 
-namespace TheHotel
+internal class Program
 {
-    internal class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
-        {
-            MainMenu mainMenu = new MainMenu();
-            mainMenu.ShowMainMenu();
-        }
+        App app = new App();
+        app.Run();
     }
 }
